@@ -40,7 +40,7 @@ const initialProducts = [
 type Product = typeof initialProducts[number]
 
 const ProductsView: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [products] = useState<Product[]>(initialProducts);
   const [filter, setFilter] = useState("");
   const [page, setPage] = useState(0);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

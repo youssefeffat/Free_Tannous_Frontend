@@ -18,7 +18,6 @@ import {
   Button,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import axios from 'axios';
 
 // Dummy data for demonstration
 const initialProducts: Product[] = [
@@ -66,18 +65,18 @@ const ProductCatalogView: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [priceRange, setPriceRange] = useState<number[]>([0, 1500]);
+  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
+  const [appliedCategory, setAppliedCategory] = useState('All');
+  const [appliedPriceRange, setAppliedPriceRange] = useState<number[]>([0, 1500]);
+  const [dynamicAttributes, setDynamicAttributes] = useState<Attribute[]>([]);
+  const [dynamicFilterValues, setDynamicFilterValues] = useState<{[key: string]: any}>({});
+  const [appliedDynamicFilterValues, setAppliedDynamicFilterValues] = useState<{[key: string]: any}>({});
 
   useEffect(() => {
     setAppliedSearchTerm(searchTerm);
     setAppliedCategory(selectedCategory);
     setAppliedPriceRange(priceRange);
-  }, []);
-  const [dynamicAttributes, setDynamicAttributes] = useState<Attribute[]>([]);
-  const [dynamicFilterValues, setDynamicFilterValues] = useState<{[key: string]: any}>({});
-  const [appliedSearchTerm, setAppliedSearchTerm] = useState('');
-  const [appliedCategory, setAppliedCategory] = useState('All');
-  const [appliedPriceRange, setAppliedPriceRange] = useState<number[]>([0, 1500]);
-  const [appliedDynamicFilterValues, setAppliedDynamicFilterValues] = useState<{[key: string]: any}>({});
+  }, [searchTerm, selectedCategory, priceRange, setAppliedSearchTerm, setAppliedCategory, setAppliedPriceRange]);
 
   const allCategories = ['All', ...Array.from(new Set(initialProducts.map(p => p.category)))];
 

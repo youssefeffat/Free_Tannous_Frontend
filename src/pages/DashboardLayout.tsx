@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   AppBar,
-  Avatar,
   Box,
   CssBaseline,
   Divider,

@@ -1,14 +1,10 @@
 import React from "react";
-import { Typography, Paper, Box, Button } from "@mui/material";
+import { Typography, Paper, Box } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PeopleIcon from "@mui/icons-material/People";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import { useNavigate } from "react-router-dom";
 
 const DashboardView: React.FC = () => {
-  const navigate = useNavigate();
   const productCount = 42;
   const clientCount = 18;
   const ongoingQuotations = 7;
